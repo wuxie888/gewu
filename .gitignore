@@ -1,4 +1,7 @@
 .DS_Store
 *.log
+*.pyc
+__pycache__/
 tmp/
 test-results/
+codex-browser-use-wechat-false-positive.md

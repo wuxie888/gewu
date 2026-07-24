@@ -1,4 +1,7 @@
 interface:
   display_name: "格物"
   short_description: "完整看清链接并拆解产品、技术、内容、来源与复用价值"
-  default_prompt: "使用 $gewu 完整查看并拆解这个目标；非 GitHub 页面通过 Chrome 做页面级阅读，核验关键来源，并判断是否值得使用、复刻或二次开发。"
+  default_prompt: "使用 $gewu 按材料形态选择合适工具，完整查看并拆解这个目标，核验关键来源，并判断是否值得使用、复刻或二次开发。"
+
+policy:
+  allow_implicit_invocation: false
