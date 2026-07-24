@@ -31,6 +31,11 @@ Thank you for helping make Gewu more reliable.
 ```bash
 python3 scripts/validate_skill.py
 python3 scripts/test_validate_skill.py
+```
+
+If OpenAI Codex Skill Creator is installed locally, you can also run:
+
+```bash
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/gewu
 ```
 

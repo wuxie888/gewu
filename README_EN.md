@@ -15,14 +15,14 @@
 </p>
 
 <p align="center">
-  Give Codex a link, repository, article, screenshot, or product clue<br>
+  Give your AI agent a link, repository, article, screenshot, or product clue<br>
   Gewu reads it in full, traces the source, dissects how it works, and tells you whether it is worth using or rebuilding
 </p>
 
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/OpenAI_Codex-Skill-b1261b?style=flat-square" alt="OpenAI Codex Skill">
+  <img src="https://img.shields.io/badge/AI_Agent-Skill-b1261b?style=flat-square" alt="AI Agent Skill">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
 </p>
 
@@ -30,7 +30,9 @@
 
 ## What does Gewu do?
 
-**Gewu is a deep-research Skill for OpenAI Codex.**
+**Gewu is a platform-agnostic deep-research Skill for AI agents.**
+
+Its core workflow is plain Markdown and does not depend on a particular model or agent product. Any agent that can load Skills, local instructions, or system prompts can use or integrate Gewu. `agents/openai.yaml` is only one adapter for OpenAI/Codex—not the boundary of Gewu itself.
 
 Its core goal is simple:
 
@@ -130,7 +132,19 @@ Gewu never pretends that blocked content was inspected:
 
 A degraded investigation states what is missing, what substitute evidence was used, how that affects the verdict, and what would be required to upgrade it to a complete review.
 
-## Installation
+## Install in your agent
+
+The portable core is the complete `skills/gewu/` directory. Keep the relative structure between `SKILL.md` and `references/`.
+
+### Generic integration
+
+1. Copy `skills/gewu/` into the target agent's configured Skills or Instructions directory
+2. If the agent has no native Skill mechanism, load `SKILL.md` as system/developer instructions and allow relative access to `references/`
+3. Invoke it explicitly as `gewu`, `格物`, or through the agent's Skill picker
+
+Installation paths and invocation syntax vary by agent, but Gewu's investigation workflow, reference rules, and output standard are platform-independent.
+
+### OpenAI Codex example
 
 ```bash
 git clone https://github.com/wuxie888/gewu.git
@@ -139,7 +153,7 @@ mkdir -p ~/.codex/skills/gewu
 rsync -a skills/gewu/ ~/.codex/skills/gewu/
 ```
 
-Refresh or restart Codex, then invoke Gewu explicitly with `$gewu` or the Skill picker.
+Refresh or restart Codex, then invoke Gewu explicitly with `$gewu` or the Skill picker. For another agent, copy the same `skills/gewu/` directory to that agent's configured location.
 
 ## Safety boundaries
 

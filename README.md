@@ -15,14 +15,14 @@
 </p>
 
 <p align="center">
-  把链接、仓库、文章、截图或产品线索交给 Codex<br>
+  把链接、仓库、文章、截图或产品线索交给你的 AI Agent<br>
   格物会完整查看、追溯源头、拆解本质，并告诉你值不值得用、复刻或二开
 </p>
 
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/OpenAI_Codex-Skill-b1261b?style=flat-square" alt="OpenAI Codex Skill">
+  <img src="https://img.shields.io/badge/AI_Agent-Skill-b1261b?style=flat-square" alt="AI Agent Skill">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
 </p>
 
@@ -30,7 +30,9 @@
 
 ## 格物到底是干什么的
 
-**格物是一个给 OpenAI Codex 使用的深度调查 Skill。**
+**格物是一套平台无关的 AI Agent 深度调查 Skill。**
+
+核心工作流写在标准 Markdown 文件中，不依赖某个模型或单一 Agent 产品。任何能够加载 Skills、本地指令或系统提示的 Agent，都可以直接使用或接入格物；`agents/openai.yaml` 只是 OpenAI/Codex 的适配层之一，不是格物的能力边界。
 
 它的基础目标很简单：
 
@@ -128,7 +130,19 @@ flowchart LR
 
 降级调查会明确写出缺了什么、用了什么替代证据、结论因此受到了什么影响，以及如何升级为完整审阅。
 
-## 安装
+## 安装到你的 Agent
+
+格物的可移植核心是整个 `skills/gewu/` 目录。接入时需要保留 `SKILL.md` 与 `references/` 的相对目录结构。
+
+### 通用接入
+
+1. 把 `skills/gewu/` 复制到目标 Agent 配置的 Skills 或 Instructions 目录
+2. 如果 Agent 没有原生 Skill 机制，将 `SKILL.md` 作为系统/开发者指令加载，并允许它按相对路径读取 `references/`
+3. 在对应 Agent 中通过 `gewu`、`格物` 或平台提供的 Skill 选择器显式调用
+
+不同 Agent 的安装目录和触发语法不同，但格物的调查流程、参考规则和输出标准不需要绑定到某个平台。
+
+### OpenAI Codex 示例
 
 ```bash
 git clone https://github.com/wuxie888/gewu.git
@@ -137,7 +151,7 @@ mkdir -p ~/.codex/skills/gewu
 rsync -a skills/gewu/ ~/.codex/skills/gewu/
 ```
 
-安装后刷新或重启 Codex，再通过 `@格物`、`$gewu` 或 Skill 选择器显式调用。
+安装后刷新或重启 Codex，再通过 `@格物`、`$gewu` 或 Skill 选择器显式调用。其他 Agent 请复制同一个 `skills/gewu/` 目录到其对应位置。
 
 ## 安全边界
 
@@ -168,7 +182,7 @@ python3 scripts/test_validate_skill.py
 ├── scripts/                # 静态验证与反向回归
 └── skills/gewu/
     ├── SKILL.md            # 核心工作流
-    ├── agents/openai.yaml  # Codex 展示与触发策略
+    ├── agents/openai.yaml  # OpenAI/Codex 展示与触发适配
     └── references/         # 来源路线、覆盖规则与拆解视角
 ```
 

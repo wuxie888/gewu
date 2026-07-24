@@ -31,6 +31,11 @@
 ```bash
 python3 scripts/validate_skill.py
 python3 scripts/test_validate_skill.py
+```
+
+如果本机安装了 OpenAI Codex 的 Skill Creator，还可以额外运行：
+
+```bash
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/gewu
 ```
 

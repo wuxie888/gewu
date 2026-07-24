@@ -23,4 +23,4 @@ Include minimal reproduction steps, impact, and redacted evidence. Do not upload
 
 ## Design boundary
 
-Gewu is a research-workflow Skill, not a security sandbox. The permissions and security policies of the host Codex environment, browser, connectors, and external platforms remain authoritative.
+Gewu is a research-workflow Skill, not a security sandbox. The permissions and security policies of the host agent, browser, connectors, and external platforms remain authoritative.
