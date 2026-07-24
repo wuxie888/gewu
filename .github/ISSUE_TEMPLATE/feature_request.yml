@@ -1,0 +1,31 @@
+name: 能力建议
+description: 建议新的来源路线、拆解视角或测试场景
+title: "[Idea] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 请描述当前格物在哪类真实任务中不足
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: 真实示例
+      description: 提供可公开复现的链接或脱敏材料
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 建议行为
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 验收方式
+      description: 什么证据可以证明改进有效
+    validations:
+      required: true

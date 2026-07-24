@@ -1,0 +1,57 @@
+name: 问题报告
+description: 报告格物在真实链接、仓库或材料上的错误行为
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先移除任务 ID、凭证、浏览器日志和私人材料。安全问题请使用私密安全报告。
+  - type: dropdown
+    id: source_type
+    attributes:
+      label: 材料类型
+      options:
+        - GitHub 或源码仓库
+        - 产品网站或在线工具
+        - 普通文章或文档
+        - X 或社交帖子
+        - 微信公众号
+        - PDF
+        - 图片或截图
+        - 音频或视频
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: 用户请求
+      description: 请提供脱敏后的原始请求和可公开链接
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: 覆盖与限制
+      description: 说明页面、图片、媒体、回复或仓库文件实际检查到哪里
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已移除凭证、任务 ID、浏览器日志和私人材料
+          required: true
