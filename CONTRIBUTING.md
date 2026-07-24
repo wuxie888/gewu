@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="./CONTRIBUTING.md"><strong>简体中文</strong></a>
+  ·
+  <a href="./CONTRIBUTING_EN.md">English</a>
+</p>
+
 # 参与贡献
 
 感谢你帮助格物变得更可靠。

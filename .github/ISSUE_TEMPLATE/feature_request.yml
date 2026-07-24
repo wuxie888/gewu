@@ -1,5 +1,5 @@
-name: 能力建议
-description: 建议新的来源路线、拆解视角或测试场景
+name: 能力建议 / Feature request
+description: 建议新的来源路线、拆解视角或测试场景 / Suggest a source route, teardown lens, or test case
 title: "[Idea] "
 labels:
   - enhancement

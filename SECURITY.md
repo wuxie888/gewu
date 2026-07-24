@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="./SECURITY.md"><strong>简体中文</strong></a>
+  ·
+  <a href="./SECURITY_EN.md">English</a>
+</p>
+
 # 安全政策
 
 ## 支持范围

@@ -1,5 +1,5 @@
-name: 问题报告
-description: 报告格物在真实链接、仓库或材料上的错误行为
+name: 问题报告 / Bug report
+description: 报告格物在真实材料上的错误行为 / Report incorrect behavior on real material
 title: "[Bug] "
 labels:
   - bug
