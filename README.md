@@ -15,14 +15,14 @@
 </p>
 
 <p align="center">
-  把链接、仓库、文章、截图或产品线索交给你的 AI Agent<br>
+  把链接、仓库、文章、截图或产品线索交给你的 Agent<br>
   格物会完整查看、追溯源头、拆解本质，并告诉你值不值得用、复刻或二开
 </p>
 
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/AI_Agent-Skill-b1261b?style=flat-square" alt="AI Agent Skill">
+  <img src="https://img.shields.io/badge/Agent-Research_Skill-b1261b?style=flat-square" alt="Agent Research Skill">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
 </p>
 
@@ -30,9 +30,9 @@
 
 ## 格物到底是干什么的
 
-**格物是一套平台无关的 AI Agent 深度调查 Skill。**
+**格物是一个让 Agent 完整看清材料、追溯一手来源、拆解实现与价值，并给出行动建议的 Skill。**
 
-核心工作流写在标准 Markdown 文件中，不依赖某个模型或单一 Agent 产品。任何能够加载 Skills、本地指令或系统提示的 Agent，都可以直接使用或接入格物；`agents/openai.yaml` 只是 OpenAI/Codex 的适配层之一，不是格物的能力边界。
+它不只适用于 Codex。支持 Skill 的 Agent 可以直接安装；没有原生 Skill 机制的 Agent，也可以把 `SKILL.md` 作为系统或开发者指令加载。`agents/openai.yaml` 只是 OpenAI/Codex 的适配层之一。
 
 它的基础目标很简单：
 

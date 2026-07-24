@@ -15,14 +15,14 @@
 </p>
 
 <p align="center">
-  Give your AI agent a link, repository, article, screenshot, or product clue<br>
+  Give your agent a link, repository, article, screenshot, or product clue<br>
   Gewu reads it in full, traces the source, dissects how it works, and tells you whether it is worth using or rebuilding
 </p>
 
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/AI_Agent-Skill-b1261b?style=flat-square" alt="AI Agent Skill">
+  <img src="https://img.shields.io/badge/Agent-Research_Skill-b1261b?style=flat-square" alt="Agent Research Skill">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
 </p>
 
@@ -30,9 +30,9 @@
 
 ## What does Gewu do?
 
-**Gewu is a platform-agnostic deep-research Skill for AI agents.**
+**Gewu gives agents a structured way to inspect material in full, trace original sources, break down implementation and value, and decide what to do next.**
 
-Its core workflow is plain Markdown and does not depend on a particular model or agent product. Any agent that can load Skills, local instructions, or system prompts can use or integrate Gewu. `agents/openai.yaml` is only one adapter for OpenAI/Codex—not the boundary of Gewu itself.
+It is not limited to Codex. Agents with native Skill support can install it directly; other agents can load `SKILL.md` as system or developer instructions. `agents/openai.yaml` is simply one adapter for OpenAI/Codex.
 
 Its core goal is simple:
 
