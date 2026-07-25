@@ -28,31 +28,6 @@
 
 ---
 
-## First use: install and investigate in 3 minutes
-
-If you just discovered Gewu, you do not need to read the entire README first:
-
-1. Add the marketplace and install the plugin:
-
-   ```bash
-   codex plugin marketplace add wuxie888/gewu
-   codex plugin add gewu@gewu
-   ```
-
-2. **Start a new task** after installation
-3. Copy this prompt and replace the URL:
-
-   ```text
-   $gewu Inspect this link completely. Tell me what it is, where the first-party source is, which claims are verified, and whether it is worth further investigation:
-   https://example.com
-   ```
-
-**[Open the 3-minute guide with a real interface screenshot →](./docs/GETTING_STARTED_EN.md)**
-
-[Troubleshooting](./docs/TROUBLESHOOTING_EN.md) · [Product definition](./PRODUCT_EN.md) · [Changelog](./CHANGELOG_EN.md) · [中文指南](./docs/GETTING_STARTED.md)
-
----
-
 ## What does Gewu do?
 
 **Gewu gives agents a structured way to inspect material in full, trace original sources, break down implementation and value, and decide what to do next.**

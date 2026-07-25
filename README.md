@@ -28,31 +28,6 @@
 
 ---
 
-## 第一次使用：3 分钟完成安装和调查
-
-如果你刚刚找到格物，不需要先读完整篇 README：
-
-1. 添加插件市场并安装：
-
-   ```bash
-   codex plugin marketplace add wuxie888/gewu
-   codex plugin add gewu@gewu
-   ```
-
-2. 安装后**新建一个任务**
-3. 复制下面这句话，把链接换成你要调查的对象：
-
-   ```text
-   $gewu 完整查看这个链接，告诉我它是什么、源头在哪里、哪些说法已经核实，以及值不值得继续研究：
-   https://example.com
-   ```
-
-**[查看带真实界面截图的 3 分钟上手指南 →](./docs/GETTING_STARTED.md)**
-
-[常见问题与排错](./docs/TROUBLESHOOTING.md) · [产品定义](./PRODUCT.md) · [版本记录](./CHANGELOG.md) · [English guide](./docs/GETTING_STARTED_EN.md)
-
----
-
 ## 格物到底是干什么的
 
 **格物是一个让 Agent 完整看清材料、追溯一手来源、拆解实现与价值，并给出行动建议的 Skill。**

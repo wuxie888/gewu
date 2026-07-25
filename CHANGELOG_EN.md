@@ -18,7 +18,7 @@ Gewu does not yet have a GitHub Release. The versions below describe repository 
 - A real Codex “Add plugin marketplace” screenshot
 - Chinese and English troubleshooting guides
 - Product definition and maintainer handoff documents
-- A first-success entry point in the README
+- A first-success entry point after the README product explanation
 - A cross-device plugin installation acceptance record
 
 ### Fixed
@@ -26,6 +26,7 @@ Gewu does not yet have a GitHub Release. The versions below describe repository 
 - Uses the officially verifiable `$gewu` syntax as the primary Codex invocation instead of implying that a manually typed Chinese `@格物` works on every surface
 - Separates marketplace `upgrade` from first-time `add`, avoiding misleading update instructions
 - Adds plugin visibility and selection in a new task to the first-success check
+- Reorders the README to explain Gewu's object, value, and boundaries before installation and usage
 
 ### Why
 
