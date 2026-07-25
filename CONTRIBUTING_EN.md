@@ -22,6 +22,9 @@ Thank you for helping make Gewu more reliable.
 - Keep core rules in `skills/gewu/SKILL.md`
 - Put detailed variants in `skills/gewu/references/`
 - Keep references one link deep and load them only when needed
+- Keep installation, onboarding, and troubleshooting in `docs/`, not in the runtime Skill
+- Record user-visible behavior changes in `CHANGELOG.md`
+- Check whether user-documentation changes need a paired `_EN` version
 - Never describe text extraction, search snippets, or README paraphrasing as complete research
 - Never treat the existence of a static rule as proof of real-world behavior
 - Do not commit accounts, task IDs, feedback IDs, browser logs, or private material
@@ -56,3 +59,5 @@ Forward tests should include a reproducible public URL or material version, date
 - [ ] New rules do not conflict with existing safety boundaries
 - [ ] Static validation and regression tests pass
 - [ ] Real tests and static checks are not presented as the same evidence level
+- [ ] Installation changes were accepted in a clean environment or on another computer
+- [ ] User-visible changes are recorded in the changelog

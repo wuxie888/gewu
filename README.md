@@ -28,6 +28,31 @@
 
 ---
 
+## 第一次使用：3 分钟完成安装和调查
+
+如果你刚刚找到格物，不需要先读完整篇 README：
+
+1. 添加插件市场并安装：
+
+   ```bash
+   codex plugin marketplace add wuxie888/gewu
+   codex plugin add gewu@gewu
+   ```
+
+2. 安装后**新建一个任务**
+3. 复制下面这句话，把链接换成你要调查的对象：
+
+   ```text
+   $gewu 完整查看这个链接，告诉我它是什么、源头在哪里、哪些说法已经核实，以及值不值得继续研究：
+   https://example.com
+   ```
+
+**[查看带真实界面截图的 3 分钟上手指南 →](./docs/GETTING_STARTED.md)**
+
+[常见问题与排错](./docs/TROUBLESHOOTING.md) · [产品定义](./PRODUCT.md) · [版本记录](./CHANGELOG.md) · [English guide](./docs/GETTING_STARTED_EN.md)
+
+---
+
 ## 格物到底是干什么的
 
 **格物是一个让 Agent 完整看清材料、追溯一手来源、拆解实现与价值，并给出行动建议的 Skill。**
@@ -76,17 +101,17 @@
 ## 你可以直接这样用
 
 ```text
-@格物 完整看一下这个产品网站，拆解它的功能和设计，并判断值不值得用
+$gewu 完整看一下这个产品网站，拆解它的功能和设计，并判断值不值得用
 
 $gewu 深查这个 GitHub 仓库，告诉我真实完成度以及是否适合二次开发
 
-@格物 把这篇公众号文章完整看完，分析它提到的项目是否可行
+$gewu 把这篇公众号文章完整看完，分析它提到的项目是否可行
 
-@格物 文章没写产品名，从截图和描述里把原项目找出来
+$gewu 文章没写产品名，从截图和描述里把原项目找出来
 
-@格物 拆解这篇文章的结构、叙事节奏和写作方法
+$gewu 拆解这篇文章的结构、叙事节奏和写作方法
 
-@格物 先快速判断这个东西值不值得我继续研究
+$gewu 先快速判断这个东西值不值得我继续研究
 ```
 
 显式调用格物时默认执行完整调查；只有你明确说“快速判断、先粗看”时，它才缩小核验范围。
@@ -134,6 +159,8 @@ flowchart LR
 
 格物的可移植核心仍然是整个 `skills/gewu/` 目录；仓库根目录同时提供了一个轻量插件封装。两种安装方式使用同一套 Skill 源码，不会出现功能分叉。
 
+第一次安装建议直接阅读 **[格物 3 分钟上手指南](./docs/GETTING_STARTED.md)**，里面包含“添加插件市场”窗口的真实截图、第一次调用指令和成功判断标准。
+
 ### 推荐：安装格物插件
 
 当前插件适用于支持 Plugins 的 Codex CLI，以及 ChatGPT 桌面端中的 Codex / ChatGPT Work。先添加格物仓库市场，再安装插件：
@@ -143,7 +170,7 @@ codex plugin marketplace add wuxie888/gewu
 codex plugin add gewu@gewu
 ```
 
-安装后请新建一个任务，让 Agent 重新载入插件，再通过 `@格物`、`$gewu` 或 Skill 选择器显式调用。
+安装后请新建一个任务，让 Agent 重新载入插件。Codex 中使用 `$gewu` 或 Skill 选择器显式调用；如果 ChatGPT Work 的 `@` 菜单中显示 **格物 · Gewu**，也可以从菜单中选择它。
 
 > 目前这是由 GitHub 仓库直接提供的公开市场版本，尚未提交到 OpenAI 的通用插件目录。插件只负责安装与分发，不会增加远程服务、账号登录或数据上传。
 
@@ -164,7 +191,7 @@ mkdir -p ~/.codex/skills/gewu
 rsync -a skills/gewu/ ~/.codex/skills/gewu/
 ```
 
-安装后刷新或重启 Codex，再通过 `@格物`、`$gewu` 或 Skill 选择器显式调用。其他 Agent 请复制同一个 `skills/gewu/` 目录到其对应位置。
+安装后刷新或重启 Codex，再通过 `$gewu` 或 Skill 选择器显式调用。其他 Agent 请复制同一个 `skills/gewu/` 目录到其对应位置。
 
 ## 安全边界
 
@@ -192,14 +219,29 @@ python3 scripts/test_validate_skill.py
 .
 ├── .agents/plugins/        # GitHub 仓库市场元数据
 ├── .codex-plugin/          # 格物插件 manifest
-├── assets/                 # README 与社交预览视觉资产
+├── assets/                 # README、社交预览与安装截图
+├── docs/                   # 上手指南与排错
 ├── evals/                  # 前向测试场景与证据记录
 ├── scripts/                # 静态验证与反向回归
-└── skills/gewu/
+├── skills/gewu/
     ├── SKILL.md            # 核心工作流
     ├── agents/openai.yaml  # OpenAI/Codex 展示与触发适配
     └── references/         # 来源路线、覆盖规则与拆解视角
+├── PRODUCT.md              # 产品定义、边界与成功标准
+├── CHANGELOG.md            # 版本变化及原因
+└── HANDOFF.md              # 维护、测试与发布交接
 ```
+
+## 项目文档
+
+| 文档 | 适合谁 |
+| --- | --- |
+| [3 分钟上手指南](./docs/GETTING_STARTED.md) | 第一次安装和使用格物的人 |
+| [常见问题与排错](./docs/TROUBLESHOOTING.md) | 安装、触发或页面访问遇到问题的人 |
+| [产品定义](./PRODUCT.md) | 想理解格物服务谁、做什么和不做什么的人 |
+| [版本记录](./CHANGELOG.md) | 想知道每次为什么修改、当前是否稳定的人 |
+| [维护交接](./HANDOFF.md) | 贡献者与维护者 |
+| [测试记录](./evals/results.md) | 需要核对真实验证状态的人 |
 
 ## 作者
 

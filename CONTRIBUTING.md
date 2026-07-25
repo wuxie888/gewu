@@ -22,6 +22,9 @@
 - 核心规则放在 `skills/gewu/SKILL.md`
 - 详细变体放在 `skills/gewu/references/`
 - 参考文档保持一层链接与按需加载
+- 安装、上手和排错说明放在 `docs/`，不要塞进运行 Skill
+- 用户可见行为变化写入 `CHANGELOG.md`
+- 用户文档修改时检查是否需要同步对应的 `_EN` 英文版
 - 不把搜索摘要、正文抽取或 README 复述写成完整调查
 - 不把静态规则存在写成真实行为已经通过
 - 不提交账号、任务 ID、反馈 ID、浏览器日志或私人材料
@@ -56,3 +59,5 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/g
 - [ ] 新规则没有与现有安全边界冲突
 - [ ] 静态检查和回归测试通过
 - [ ] 真实测试与静态检查的证据等级没有混写
+- [ ] 安装流程变化已在干净环境或另一台电脑验收
+- [ ] 用户可见变化已更新版本记录

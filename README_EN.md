@@ -28,6 +28,31 @@
 
 ---
 
+## First use: install and investigate in 3 minutes
+
+If you just discovered Gewu, you do not need to read the entire README first:
+
+1. Add the marketplace and install the plugin:
+
+   ```bash
+   codex plugin marketplace add wuxie888/gewu
+   codex plugin add gewu@gewu
+   ```
+
+2. **Start a new task** after installation
+3. Copy this prompt and replace the URL:
+
+   ```text
+   $gewu Inspect this link completely. Tell me what it is, where the first-party source is, which claims are verified, and whether it is worth further investigation:
+   https://example.com
+   ```
+
+**[Open the 3-minute guide with a real interface screenshot →](./docs/GETTING_STARTED_EN.md)**
+
+[Troubleshooting](./docs/TROUBLESHOOTING_EN.md) · [Product definition](./PRODUCT_EN.md) · [Changelog](./CHANGELOG_EN.md) · [中文指南](./docs/GETTING_STARTED.md)
+
+---
+
 ## What does Gewu do?
 
 **Gewu gives agents a structured way to inspect material in full, trace original sources, break down implementation and value, and decide what to do next.**
@@ -136,6 +161,8 @@ A degraded investigation states what is missing, what substitute evidence was us
 
 The portable core remains the complete `skills/gewu/` directory. The repository root now also provides a lightweight plugin wrapper. Both installation paths use the same Skill source, so their behavior cannot drift apart.
 
+For a first installation, open the **[Gewu 3-minute getting-started guide](./docs/GETTING_STARTED_EN.md)**. It includes a real screenshot of the marketplace dialog, a first-run prompt, and success criteria.
+
 ### Recommended: install the Gewu plugin
 
 The current plugin works with Codex CLI and the Codex / ChatGPT Work surfaces in the ChatGPT desktop app that support Plugins. Add the Gewu repository marketplace, then install the plugin:
@@ -145,7 +172,7 @@ codex plugin marketplace add wuxie888/gewu
 codex plugin add gewu@gewu
 ```
 
-Start a new task after installation so the agent reloads the plugin, then invoke Gewu explicitly with `$gewu` or the Skill picker.
+Start a new task after installation so the agent reloads the plugin. In Codex, invoke it with `$gewu` or the Skill picker. If **格物 · Gewu** appears in ChatGPT Work's `@` menu, you can select it there as well.
 
 > This is currently a public GitHub-backed marketplace build, not yet a listing in OpenAI's universal plugin directory. The wrapper only handles installation and distribution; it adds no remote service, account login, or data upload.
 
@@ -194,14 +221,29 @@ python3 scripts/test_validate_skill.py
 .
 ├── .agents/plugins/        # GitHub-backed marketplace metadata
 ├── .codex-plugin/          # Gewu plugin manifest
-├── assets/                 # README and social-preview assets
+├── assets/                 # README, social-preview, and installation images
+├── docs/                   # Getting started and troubleshooting
 ├── evals/                  # Forward-test cases and evidence records
 ├── scripts/                # Static validation and negative regression tests
-└── skills/gewu/
+├── skills/gewu/
     ├── SKILL.md            # Core workflow
     ├── agents/openai.yaml  # OpenAI/Codex presentation and invocation adapter
     └── references/         # Source routes, coverage rules, and teardown lenses
+├── PRODUCT.md              # Product definition, boundaries, and success criteria
+├── CHANGELOG.md            # Version changes and reasons
+└── HANDOFF.md              # Maintenance, testing, and release handoff
 ```
+
+## Project documents
+
+| Document | Audience |
+| --- | --- |
+| [3-minute getting-started guide](./docs/GETTING_STARTED_EN.md) | First-time installers and users |
+| [Troubleshooting](./docs/TROUBLESHOOTING_EN.md) | Installation, invocation, and access problems |
+| [Product definition](./PRODUCT_EN.md) | Product audience, goals, and non-goals |
+| [Changelog](./CHANGELOG_EN.md) | Version changes, reasons, and stability |
+| [Maintainer handoff](./HANDOFF_EN.md) | Contributors and maintainers |
+| [Test results](./evals/results.md) | Current validation evidence |
 
 ## Author
 
