@@ -67,6 +67,16 @@ codex plugin add gewu@gewu
 
 发送之前，确认编辑框中已经出现 `$gewu` 或已选中的格物 Skill。仅仅得到一段像调查报告的回答，并不能证明插件已经被加载。
 
+### 已经安装过格物
+
+仓库发布新版本后，不要假设本机插件会立即自动更新。刷新 Git 市场并重新同步已安装插件：
+
+```bash
+codex plugin marketplace upgrade gewu
+```
+
+刷新后新建任务。`codex plugin marketplace add wuxie888/gewu` 只用于第一次添加市场，不是升级命令。
+
 ## 完成第一次调查
 
 复制下面这句话，把最后的链接换成你真正想调查的对象：

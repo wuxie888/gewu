@@ -67,6 +67,16 @@ Invoke Gewu explicitly:
 
 Before sending, confirm that `$gewu` or the selected Gewu Skill appears in the composer. A response that merely looks like a research report does not prove that the plugin was loaded.
 
+### If Gewu is already installed
+
+Do not assume that a new repository release immediately updates the installed plugin. Refresh the Git marketplace and resynchronize installed plugins:
+
+```bash
+codex plugin marketplace upgrade gewu
+```
+
+Start a new task after the refresh. `codex plugin marketplace add wuxie888/gewu` is only for first-time marketplace setup, not upgrades.
+
 ## Complete your first investigation
 
 Copy this prompt and replace the final URL:

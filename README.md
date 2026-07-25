@@ -149,6 +149,16 @@ codex plugin add gewu@gewu
 
 > 目前这是由 GitHub 仓库直接提供的公开市场版本，尚未提交到 OpenAI 的通用插件目录。添加市场表示信任 `wuxie888/gewu` 这个第三方 Git 来源，不代表经过 OpenAI 目录审核。格物当前是纯 Skill 插件，不含 App、MCP Server、Hook、远程服务、账号登录或数据上传；源码、插件清单和提交历史都可在本仓库审阅。
 
+### 已经安装：更新格物
+
+GitHub 市场版本不会因为仓库出现新提交就保证立即更新本机缓存。刷新格物市场：
+
+```bash
+codex plugin marketplace upgrade gewu
+```
+
+市场刷新会重新同步已经安装的格物插件。完成后请新建一个任务，让 Agent 载入新版 Skill。不要重复运行 `codex plugin marketplace add wuxie888/gewu`；`add` 用于第一次添加市场，不是升级。
+
 ### 通用 Skill 接入
 
 1. 把 `skills/gewu/` 复制到目标 Agent 配置的 Skills 或 Instructions 目录

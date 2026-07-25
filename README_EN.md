@@ -151,6 +151,16 @@ Start a new task after installation so the agent reloads the plugin. In Codex, i
 
 > This is a public GitHub-backed marketplace build, not yet a listing in OpenAI's universal plugin directory. Adding it means trusting the third-party Git source `wuxie888/gewu`; it does not imply OpenAI directory review. Gewu is currently a Skill-only plugin with no App, MCP server, hook, remote service, account login, or data upload. Its source, manifest, and commit history are reviewable in this repository.
 
+### Already installed: update Gewu
+
+A new repository commit does not guarantee that a GitHub-backed marketplace immediately replaces the installed cache. Refresh the Gewu marketplace:
+
+```bash
+codex plugin marketplace upgrade gewu
+```
+
+Refreshing the marketplace resynchronizes the installed Gewu plugin. Start a new task afterward so the agent loads the updated Skill. Do not rerun `codex plugin marketplace add wuxie888/gewu`; `add` is for first-time marketplace setup, not upgrades.
+
 ### Generic Skill integration
 
 1. Copy `skills/gewu/` into the target agent's configured Skills or Instructions directory

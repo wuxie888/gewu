@@ -12,7 +12,10 @@ Gewu does not yet have a GitHub Release. The versions below describe repository 
 
 ## Unreleased
 
-None.
+### Added
+
+- Promotes the upgrade command for existing users into the README and 3-minute guide
+- Separates remote repository updates, Git marketplace refresh, and new-task reload as three distinct stages
 
 ## 1.1.0-rc.2 — 2026-07-25
 
