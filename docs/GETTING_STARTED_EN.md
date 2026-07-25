@@ -37,6 +37,14 @@ Open **Plugins → Add plugin marketplace** and enter:
 
 Select **Add marketplace**.
 
+The dialog is an official Codex capability, but a manually added Git marketplace is a third-party supply chain and is not automatically endorsed through OpenAI directory review. Before adding it, confirm:
+
+- The source is exactly [`wuxie888/gewu`](https://github.com/wuxie888/gewu)
+- The public repository, publisher, commit history, and manifest match this project
+- Gewu currently contains only `skills/`, with no App, MCP server, hook, account login, or remote service
+
+Use `main` during the candidate stage to receive current fixes. After a stable release, pin a stable tag or full commit SHA when reproducibility matters more.
+
 ### Step 2: Install Gewu
 
 Find **格物 · Gewu** in the marketplace you just added, then select **Install**.

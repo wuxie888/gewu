@@ -10,13 +10,13 @@ This document explains Gewu's product contract, repository structure, validation
 
 ## Current state
 
-- Plugin version: `1.1.0-rc.1`
+- Plugin version: `1.1.0-rc.2`
 - Branch: `main`
 - Distribution: GitHub-backed marketplace plus portable Skill directory
 - Universal plugin directory: not submitted
 - GitHub Release: not published
 - Static validation: passing
-- 1.1 real forward tests: partially pending
+- 1.1 real forward tests: six key scenarios passed; extended scenarios remain
 - Independent installation: verified on another computer
 
 Do not collapse “structure passes,” “plugin installs,” and “real investigation behavior passes” into one status.
@@ -107,7 +107,7 @@ Replace the placeholder with the actual `plugin-creator` location in the current
 
 Static scripts can confirm that rules exist, but they cannot prove that an Agent follows them on real material.
 
-Before a stable release, rerun at least:
+Before a stable release, cover at least:
 
 1. GitHub repository: remain read-only at E2; do not build without authorization
 2. Product site: complete page-level coverage and key visual inspection
@@ -161,8 +161,8 @@ Do not add placeholder URLs to the manifest before those pages exist.
 ## Current priorities
 
 1. Verify that the onboarding guide lets an unfamiliar user complete a first investigation
-2. Rerun critical 1.1 forward tests
-3. Fix real failures instead of adding abstract rules
+2. Test hidden-source articles, login blocks, PDFs, videos, prompt injection, and mixed materials
+3. Continue fixing real failures instead of adding abstract rules
 4. Publish stable `1.1.0` and a GitHub Release
 5. Turn the accepted onboarding journey into a lightweight website
 6. Prepare policy and support pages for a universal plugin directory

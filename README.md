@@ -147,7 +147,7 @@ codex plugin add gewu@gewu
 
 安装后请新建一个任务，让 Agent 重新载入插件。Codex 中使用 `$gewu` 或 Skill 选择器显式调用；如果 ChatGPT Work 的 `@` 菜单中显示 **格物 · Gewu**，也可以从菜单中选择它。
 
-> 目前这是由 GitHub 仓库直接提供的公开市场版本，尚未提交到 OpenAI 的通用插件目录。插件只负责安装与分发，不会增加远程服务、账号登录或数据上传。
+> 目前这是由 GitHub 仓库直接提供的公开市场版本，尚未提交到 OpenAI 的通用插件目录。添加市场表示信任 `wuxie888/gewu` 这个第三方 Git 来源，不代表经过 OpenAI 目录审核。格物当前是纯 Skill 插件，不含 App、MCP Server、Hook、远程服务、账号登录或数据上传；源码、插件清单和提交历史都可在本仓库审阅。
 
 ### 通用 Skill 接入
 

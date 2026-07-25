@@ -56,7 +56,7 @@ class ValidatorRegressionTests(unittest.TestCase):
     def test_bare_word_trigger_promise_is_rejected(self) -> None:
         skill = (ROOT / "skills/gewu/SKILL.md").read_text(encoding="utf-8")
         mutated = skill.replace(
-            "通过 @格物、$gewu 或 Skill 选择器明确调用",
+            "通过 $gewu、Skill 选择器，或在 ChatGPT Work 的插件提及菜单中明确选择格物",
             "明确调用 $gewu 或“格物”",
         )
         self.assert_rejected(lambda: validate_skill.validate_frontmatter(mutated))

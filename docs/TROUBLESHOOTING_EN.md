@@ -55,6 +55,18 @@ The exact command error is more useful than “installation failed.” Remove us
 
 Gewu has no account system, MCP server, or OAuth flow. A normal installation does not ask you to sign in to “Gewu” or paste an API key; Codex itself still requires a valid login. Stop and report any unexplained external account or secret request during installation.
 
+## Is it safe to add a Git plugin marketplace manually?
+
+“Add plugin marketplace” is an official Codex entry point, but the Git repository being added remains a third-party source. A trusted entry point does not mean that the repository has passed OpenAI directory review.
+
+Gewu's current auditable installation surface is limited to:
+
+- `.agents/plugins/marketplace.json`
+- `.codex-plugin/plugin.json`
+- `skills/gewu/`
+
+It has no `.app.json`, `.mcp.json`, or hook, starts no local command, connects no external account, and requests no secret. Any future addition of those capabilities must be disclosed in the changelog, installation guide, and manifest.
+
 ## I pasted a link, but Gewu was not invoked
 
 Gewu requires explicit invocation by default. In Codex, use:

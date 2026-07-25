@@ -141,11 +141,11 @@ Stars, install counts, and report length are observable, but they do not replace
 
 ## Current stage
 
-Gewu is currently at the `1.1.0-rc.1` candidate stage:
+Gewu is currently at the `1.1.0-rc.2` candidate stage:
 
 - The GitHub-backed marketplace plugin has been independently installed on another computer
 - Skill structure and static regression checks pass
-- 1.1 real forward tests still need to be rerun by scenario
+- Six key 1.1 real forward tests have passed; extended scenarios remain
 - The official website does not exist yet
 - Critical forward tests and onboarding acceptance are required before a stable release
 

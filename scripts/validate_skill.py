@@ -94,7 +94,7 @@ def validate_frontmatter(skill_text: str) -> None:
     description = values["description"]
     require_phrases(
         description,
-        ["@格物", "$gewu", "Skill 选择器", "普通的一问一答式链接摘要"],
+        ["$gewu", "Skill 选择器", "ChatGPT Work", "插件提及菜单", "普通的一问一答式链接摘要"],
         "SKILL.md description",
     )
     reject_phrases(description, ["$gewu 或“格物”", "$gewu 或'格物'"], "SKILL.md description")
@@ -232,7 +232,8 @@ def validate_results(results: str) -> None:
             "静态回归通过不能写成真实行为已经通过",
             "1.1 真实前向测试状态",
             "未执行",
-            "待重跑",
+            "真实通过",
+            "通过诚实降级",
         ],
         "evals/results.md",
     )

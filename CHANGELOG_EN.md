@@ -12,6 +12,10 @@ Gewu does not yet have a GitHub Release. The versions below describe repository 
 
 ## Unreleased
 
+None.
+
+## 1.1.0-rc.2 — 2026-07-25
+
 ### Added
 
 - Chinese and English 3-minute getting-started guides
@@ -20,6 +24,7 @@ Gewu does not yet have a GitHub Release. The versions below describe repository 
 - Product definition and maintainer handoff documents
 - A first-success entry point after the README product explanation
 - A cross-device plugin installation acceptance record
+- Six independent real forward tests with reviewable evidence
 
 ### Fixed
 
@@ -27,10 +32,12 @@ Gewu does not yet have a GitHub Release. The versions below describe repository 
 - Separates marketplace `upgrade` from first-time `add`, avoiding misleading update instructions
 - Adds plugin visibility and selection in a new task to the first-success check
 - Reorders the README to explain Gewu's object, value, and boundaries before installation and usage
+- Clarifies that a third-party Git marketplace is not OpenAI directory review and discloses that Gewu currently has no App, MCP server, or hook
+- Aligns the Skill trigger description with `$gewu`, the Skill picker, and an actually available ChatGPT Work plugin mention menu
 
 ### Why
 
-The plugin was independently installed on another computer, but installation does not mean a user knows how to invoke it in a new task or recognize a correct result. This update defines onboarding success as the first credible investigation.
+The plugin was independently installed on another computer, but installation does not mean a user knows how to invoke it in a new task or recognize a correct result. This update defines onboarding success as the first credible investigation and validates the core behavior and honest-degradation boundary with six independent real materials.
 
 ## 1.1.0-rc.1 — 2026-07-25
 

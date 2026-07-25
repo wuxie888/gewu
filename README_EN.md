@@ -149,7 +149,7 @@ codex plugin add gewu@gewu
 
 Start a new task after installation so the agent reloads the plugin. In Codex, invoke it with `$gewu` or the Skill picker. If **格物 · Gewu** appears in ChatGPT Work's `@` menu, you can select it there as well.
 
-> This is currently a public GitHub-backed marketplace build, not yet a listing in OpenAI's universal plugin directory. The wrapper only handles installation and distribution; it adds no remote service, account login, or data upload.
+> This is a public GitHub-backed marketplace build, not yet a listing in OpenAI's universal plugin directory. Adding it means trusting the third-party Git source `wuxie888/gewu`; it does not imply OpenAI directory review. Gewu is currently a Skill-only plugin with no App, MCP server, hook, remote service, account login, or data upload. Its source, manifest, and commit history are reviewable in this repository.
 
 ### Generic Skill integration
 
