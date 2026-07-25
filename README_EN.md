@@ -22,7 +22,7 @@
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/Agent-Research_Skill-b1261b?style=flat-square" alt="Agent Research Skill">
+  <img src="https://img.shields.io/badge/Agent-Research_Skill_+_Plugin-b1261b?style=flat-square" alt="Agent Research Skill and Plugin">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
 </p>
 
@@ -134,9 +134,22 @@ A degraded investigation states what is missing, what substitute evidence was us
 
 ## Install in your agent
 
-The portable core is the complete `skills/gewu/` directory. Keep the relative structure between `SKILL.md` and `references/`.
+The portable core remains the complete `skills/gewu/` directory. The repository root now also provides a lightweight plugin wrapper. Both installation paths use the same Skill source, so their behavior cannot drift apart.
 
-### Generic integration
+### Recommended: install the Gewu plugin
+
+The current plugin works with Codex CLI and the Codex / ChatGPT Work surfaces in the ChatGPT desktop app that support Plugins. Add the Gewu repository marketplace, then install the plugin:
+
+```bash
+codex plugin marketplace add wuxie888/gewu
+codex plugin add gewu@gewu
+```
+
+Start a new task after installation so the agent reloads the plugin, then invoke Gewu explicitly with `$gewu` or the Skill picker.
+
+> This is currently a public GitHub-backed marketplace build, not yet a listing in OpenAI's universal plugin directory. The wrapper only handles installation and distribution; it adds no remote service, account login, or data upload.
+
+### Generic Skill integration
 
 1. Copy `skills/gewu/` into the target agent's configured Skills or Instructions directory
 2. If the agent has no native Skill mechanism, load `SKILL.md` as system/developer instructions and allow relative access to `references/`
@@ -144,7 +157,7 @@ The portable core is the complete `skills/gewu/` directory. Keep the relative st
 
 Installation paths and invocation syntax vary by agent, but Gewu's investigation workflow, reference rules, and output standard are platform-independent.
 
-### OpenAI Codex example
+### Codex Skill-only example
 
 ```bash
 git clone https://github.com/wuxie888/gewu.git
@@ -174,6 +187,21 @@ python3 scripts/test_validate_skill.py
 ```
 
 [Test cases](./evals/cases.md) and [test results](./evals/results.md) distinguish real forward tests, static regression, and scenarios that have not yet been run. Static checks do not prove that every live page has been tested.
+
+## Repository structure
+
+```text
+.
+├── .agents/plugins/        # GitHub-backed marketplace metadata
+├── .codex-plugin/          # Gewu plugin manifest
+├── assets/                 # README and social-preview assets
+├── evals/                  # Forward-test cases and evidence records
+├── scripts/                # Static validation and negative regression tests
+└── skills/gewu/
+    ├── SKILL.md            # Core workflow
+    ├── agents/openai.yaml  # OpenAI/Codex presentation and invocation adapter
+    └── references/         # Source routes, coverage rules, and teardown lenses
+```
 
 ## Author
 

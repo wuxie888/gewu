@@ -66,6 +66,44 @@ class ValidatorRegressionTests(unittest.TestCase):
         mutated = results + "\n## 已验证的核心行为\n"
         self.assert_rejected(lambda: validate_skill.validate_results(mutated))
 
+    def test_plugin_skill_path_regression_is_rejected(self) -> None:
+        manifest = {
+            "name": "gewu",
+            "version": "1.1.0-rc.1",
+            "skills": "./copied-skills/",
+            "license": "MIT",
+            "repository": "https://github.com/wuxie888/gewu",
+            "author": {"name": "Wuxie"},
+            "interface": {
+                "displayName": "格物 · Gewu",
+                "shortDescription": "完整看清材料，追溯源头，拆解本质并判断是否值得投入",
+                "longDescription": "test",
+                "developerName": "Wuxie",
+                "category": "Productivity",
+                "capabilities": [],
+                "defaultPrompt": ["使用 $gewu 深查这个目标。"],
+            },
+        }
+        self.assert_rejected(lambda: validate_skill.validate_plugin_manifest(manifest))
+
+    def test_marketplace_source_regression_is_rejected(self) -> None:
+        marketplace = {
+            "name": "gewu",
+            "interface": {"displayName": "格物 · Gewu"},
+            "plugins": [
+                {
+                    "name": "gewu",
+                    "source": {"source": "local", "path": "./plugins/gewu"},
+                    "policy": {
+                        "installation": "AVAILABLE",
+                        "authentication": "ON_INSTALL",
+                    },
+                    "category": "Productivity",
+                }
+            ],
+        }
+        self.assert_rejected(lambda: validate_skill.validate_marketplace(marketplace))
+
 
 if __name__ == "__main__":
     unittest.main()

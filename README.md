@@ -22,7 +22,7 @@
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/Agent-Research_Skill-b1261b?style=flat-square" alt="Agent Research Skill">
+  <img src="https://img.shields.io/badge/Agent-Research_Skill_+_Plugin-b1261b?style=flat-square" alt="Agent Research Skill and Plugin">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
 </p>
 
@@ -132,9 +132,22 @@ flowchart LR
 
 ## 安装到你的 Agent
 
-格物的可移植核心是整个 `skills/gewu/` 目录。接入时需要保留 `SKILL.md` 与 `references/` 的相对目录结构。
+格物的可移植核心仍然是整个 `skills/gewu/` 目录；仓库根目录同时提供了一个轻量插件封装。两种安装方式使用同一套 Skill 源码，不会出现功能分叉。
 
-### 通用接入
+### 推荐：安装格物插件
+
+当前插件适用于支持 Plugins 的 Codex CLI，以及 ChatGPT 桌面端中的 Codex / ChatGPT Work。先添加格物仓库市场，再安装插件：
+
+```bash
+codex plugin marketplace add wuxie888/gewu
+codex plugin add gewu@gewu
+```
+
+安装后请新建一个任务，让 Agent 重新载入插件，再通过 `@格物`、`$gewu` 或 Skill 选择器显式调用。
+
+> 目前这是由 GitHub 仓库直接提供的公开市场版本，尚未提交到 OpenAI 的通用插件目录。插件只负责安装与分发，不会增加远程服务、账号登录或数据上传。
+
+### 通用 Skill 接入
 
 1. 把 `skills/gewu/` 复制到目标 Agent 配置的 Skills 或 Instructions 目录
 2. 如果 Agent 没有原生 Skill 机制，将 `SKILL.md` 作为系统/开发者指令加载，并允许它按相对路径读取 `references/`
@@ -142,7 +155,7 @@ flowchart LR
 
 不同 Agent 的安装目录和触发语法不同，但格物的调查流程、参考规则和输出标准不需要绑定到某个平台。
 
-### OpenAI Codex 示例
+### 仅安装 Skill 的 Codex 示例
 
 ```bash
 git clone https://github.com/wuxie888/gewu.git
@@ -177,6 +190,8 @@ python3 scripts/test_validate_skill.py
 
 ```text
 .
+├── .agents/plugins/        # GitHub 仓库市场元数据
+├── .codex-plugin/          # 格物插件 manifest
 ├── assets/                 # README 与社交预览视觉资产
 ├── evals/                  # 前向测试场景与证据记录
 ├── scripts/                # 静态验证与反向回归

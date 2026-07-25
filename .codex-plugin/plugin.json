@@ -1,0 +1,40 @@
+{
+  "name": "gewu",
+  "version": "1.1.0-rc.1",
+  "description": "完整查看链接、仓库、文章与产品线索，追溯一手来源，拆解实现与价值，并给出行动判断。",
+  "author": {
+    "name": "Wuxie",
+    "url": "https://github.com/wuxie888"
+  },
+  "homepage": "https://github.com/wuxie888/gewu",
+  "repository": "https://github.com/wuxie888/gewu",
+  "license": "MIT",
+  "keywords": [
+    "agent-skill",
+    "deep-research",
+    "source-tracing",
+    "product-research",
+    "content-analysis"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "格物 · Gewu",
+    "shortDescription": "完整看清材料，追溯源头，拆解本质并判断是否值得投入",
+    "longDescription": "把链接、仓库、文章、截图或产品线索交给 Agent。格物会完整查看材料、追溯一手来源、核验真实能力，拆解产品、技术、设计、写作或商业方法，并判断是否值得使用、复刻或二次开发。",
+    "developerName": "Wuxie",
+    "category": "Productivity",
+    "capabilities": [
+      "Deep research",
+      "Source tracing",
+      "Product teardown",
+      "Evidence-based verdicts"
+    ],
+    "websiteURL": "https://github.com/wuxie888/gewu",
+    "defaultPrompt": [
+      "使用 $gewu 完整查看这个链接，追溯一手来源并判断是否值得使用或二开。",
+      "使用 $gewu 深查这个仓库的真实完成度、许可证与二次开发价值。",
+      "使用 $gewu 拆解这篇文章的内容、写作方法和其中项目的可行性。"
+    ],
+    "brandColor": "#B1261B"
+  }
+}

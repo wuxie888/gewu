@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import stat
 from pathlib import Path
@@ -10,6 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "gewu"
+PLUGIN_MANIFEST = ROOT / ".codex-plugin" / "plugin.json"
+MARKETPLACE = ROOT / ".agents" / "plugins" / "marketplace.json"
 REQUIRED_REFERENCES = {
     "completeness-checklists.md",
     "evidence-and-verdict.md",
@@ -240,6 +243,82 @@ def validate_results(results: str) -> None:
     )
 
 
+def validate_plugin_manifest(manifest: dict) -> None:
+    if manifest.get("name") != "gewu":
+        fail("plugin name must be gewu")
+    version = manifest.get("version", "")
+    if not re.fullmatch(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?", version):
+        fail("plugin version must use semantic versioning")
+    if manifest.get("skills") != "./skills/":
+        fail("plugin must load the canonical ./skills/ directory")
+    if manifest.get("license") != "MIT":
+        fail("plugin license must be MIT")
+    if manifest.get("repository") != "https://github.com/wuxie888/gewu":
+        fail("plugin repository must point to the public Gewu repository")
+
+    author = manifest.get("author")
+    if not isinstance(author, dict) or author.get("name") != "Wuxie":
+        fail("plugin author.name must be Wuxie")
+
+    interface = manifest.get("interface")
+    if not isinstance(interface, dict):
+        fail("plugin interface metadata is required")
+    required_interface = {
+        "displayName",
+        "shortDescription",
+        "longDescription",
+        "developerName",
+        "category",
+        "capabilities",
+        "defaultPrompt",
+    }
+    missing = sorted(required_interface - set(interface))
+    if missing:
+        fail("plugin interface is missing: " + ", ".join(missing))
+    if interface["displayName"] != "格物 · Gewu":
+        fail("plugin displayName must be 格物 · Gewu")
+    if interface["developerName"] != "Wuxie":
+        fail("plugin developerName must be Wuxie")
+    prompts = interface["defaultPrompt"]
+    if not isinstance(prompts, list) or not 1 <= len(prompts) <= 3:
+        fail("plugin defaultPrompt must contain 1-3 starter prompts")
+    if any(not isinstance(prompt, str) or len(prompt) > 128 for prompt in prompts):
+        fail("plugin starter prompts must be strings no longer than 128 characters")
+    if any("$gewu" not in prompt for prompt in prompts):
+        fail("every plugin starter prompt must explicitly invoke $gewu")
+    if "mcpServers" in manifest or "apps" in manifest:
+        fail("skills-only Gewu plugin must not declare MCP servers or apps")
+
+
+def validate_marketplace(marketplace: dict) -> None:
+    if marketplace.get("name") != "gewu":
+        fail("marketplace name must be gewu")
+    interface = marketplace.get("interface")
+    if not isinstance(interface, dict) or interface.get("displayName") != "格物 · Gewu":
+        fail("marketplace displayName must be 格物 · Gewu")
+    plugins = marketplace.get("plugins")
+    if not isinstance(plugins, list) or len(plugins) != 1:
+        fail("marketplace must contain exactly one Gewu plugin")
+    plugin = plugins[0]
+    if plugin.get("name") != "gewu":
+        fail("marketplace plugin name must be gewu")
+    source = plugin.get("source")
+    expected_source = {
+        "source": "url",
+        "url": "https://github.com/wuxie888/gewu.git",
+        "ref": "main",
+    }
+    if source != expected_source:
+        fail("marketplace must load the plugin from the Gewu repository root")
+    if plugin.get("policy") != {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL",
+    }:
+        fail("marketplace plugin policy is invalid")
+    if plugin.get("category") != "Productivity":
+        fail("marketplace plugin category must be Productivity")
+
+
 def validate_evals() -> None:
     cases = read("evals/cases.md")
     scenario_numbers = {
@@ -269,6 +348,8 @@ def validate_repository_files() -> None:
     require_phrases(
         readme,
         [
+            "codex plugin marketplace add wuxie888/gewu",
+            "codex plugin add gewu@gewu",
             "rsync -a skills/gewu/ ~/.codex/skills/gewu/",
             "python3 scripts/test_validate_skill.py",
             "静态校验只能确认",
@@ -299,6 +380,18 @@ def validate_repository_files() -> None:
     mode = (ROOT / "scripts" / "validate_skill.py").stat().st_mode
     if not mode & stat.S_IXUSR:
         fail("scripts/validate_skill.py must keep its executable bit")
+
+    if not PLUGIN_MANIFEST.is_file():
+        fail("missing .codex-plugin/plugin.json")
+    if not MARKETPLACE.is_file():
+        fail("missing .agents/plugins/marketplace.json")
+    try:
+        manifest = json.loads(PLUGIN_MANIFEST.read_text(encoding="utf-8"))
+        marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        fail(f"plugin metadata must be valid JSON: {error}")
+    validate_plugin_manifest(manifest)
+    validate_marketplace(marketplace)
 
 
 def main() -> None:

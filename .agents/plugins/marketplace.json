@@ -1,0 +1,21 @@
+{
+  "name": "gewu",
+  "interface": {
+    "displayName": "格物 · Gewu"
+  },
+  "plugins": [
+    {
+      "name": "gewu",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/wuxie888/gewu.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
