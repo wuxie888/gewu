@@ -10,14 +10,15 @@ This document explains Gewu's product contract, repository structure, validation
 
 ## Current state
 
-- Plugin version: `1.1.0-rc.2`
+- Plugin version: `1.1.0`
 - Branch: `main`
 - Distribution: GitHub-backed marketplace plus portable Skill directory
 - Universal plugin directory: not submitted
-- GitHub Release: not published
+- GitHub Release: [`v1.1.0`](https://github.com/wuxie888/gewu/releases/tag/v1.1.0)
 - Static validation: passing
 - 1.1 real forward tests: six key scenarios passed; extended scenarios remain
 - Independent installation: verified on another computer
+- First-use acceptance: confirmed by the user; no independent recording or timing log was retained
 
 Do not collapse “structure passes,” “plugin installs,” and “real investigation behavior passes” into one status.
 
@@ -131,11 +132,11 @@ Each record should include the exact URL, date, platform, plugin version or comm
 
 ### Stable
 
-- [ ] Critical 1.1 forward tests are complete
-- [ ] Blocking failures are fixed or explicitly documented
-- [ ] `evals/results.md` is updated
-- [ ] Plugin version moves from candidate to stable
-- [ ] A GitHub Release is created with release notes
+- [x] Critical 1.1 forward tests are complete
+- [x] Blocking failures are fixed or explicitly documented
+- [x] `evals/results.md` is updated
+- [x] Plugin version moves from candidate to stable
+- [x] A GitHub Release is created with release notes
 - [ ] Installation and first invocation are accepted again from the public repository
 
 ### Universal plugin directory
@@ -160,12 +161,11 @@ Do not add placeholder URLs to the manifest before those pages exist.
 
 ## Current priorities
 
-1. Verify that the onboarding guide lets an unfamiliar user complete a first investigation
+1. Revalidate a clean install and first invocation from the public `v1.1.0` tag
 2. Test hidden-source articles, login blocks, PDFs, videos, prompt injection, and mixed materials
 3. Continue fixing real failures instead of adding abstract rules
-4. Publish stable `1.1.0` and a GitHub Release
-5. Turn the accepted onboarding journey into a lightweight website
-6. Prepare policy and support pages for a universal plugin directory
+4. Turn the accepted onboarding journey into a lightweight website
+5. Prepare policy and support pages for a universal plugin directory
 
 ## Maintenance judgment
 

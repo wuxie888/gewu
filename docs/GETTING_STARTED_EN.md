@@ -43,7 +43,7 @@ The dialog is an official Codex capability, but a manually added Git marketplace
 - The public repository, publisher, commit history, and manifest match this project
 - Gewu currently contains only `skills/`, with no App, MCP server, hook, account login, or remote service
 
-Use `main` during the candidate stage to receive current fixes. After a stable release, pin a stable tag or full commit SHA when reproducibility matters more.
+Use `main` to receive ongoing fixes. When reproducibility matters more, pin the Git reference to the stable tag `v1.1.0` or a full commit SHA.
 
 ### Step 2: Install Gewu
 

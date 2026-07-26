@@ -8,14 +8,47 @@
 
 This file records changes that affect user experience, investigation behavior, compatibility, and product boundaries. Minor formatting or wording edits may be grouped.
 
-Gewu does not yet have a GitHub Release. The versions below describe repository evolution and do not imply a listing in a universal plugin directory.
+Stable versions map to public GitHub Releases; candidate versions record pre-release evolution. A GitHub Release does not imply listing in OpenAI's universal plugin directory.
 
 ## Unreleased
 
+None.
+
+## 1.1.0 — 2026-07-26
+
+Gewu's first stable plugin release.
+
 ### Added
 
-- Promotes the upgrade command for existing users into the README and 3-minute guide
-- Separates remote repository updates, Git marketplace refresh, and new-task reload as three distinct stages
+- Installable Gewu plugin distributed through a GitHub-backed marketplace
+- Chinese and English getting-started, troubleshooting, product, and maintainer documentation
+- A visible upgrade command for existing users, separating remote updates, marketplace refresh, and new-task reload
+- Six independent real forward tests with reviewable evidence
+- Stable `v1.1.0` tag and GitHub Release
+
+### Core improvements
+
+- Read-only by default; “is it worth it?” does not authorize clone, install, build, or execution
+- Source-type routes for repositories, pages, social content, documents, videos, and screenshots
+- Strict separation between complete reviews and degraded investigations
+- Stop after an explicit browser security-policy rejection; no cross-surface bypass
+- Separate detection, rendering, and visual inspection counts
+- Trace screenshots, logos, UI copy, commands, and timelines back to primary sources
+- Separate observation, source claim, corroboration, inference, and unknowns
+- End with an action decision: use, trial, rebuild, extend, monitor, or stop
+
+### Validation
+
+- Cross-device plugin installation passed
+- The user confirmed acceptance of the first-use journey; no independent recording or timing log was retained
+- Six key scenarios passed: GitHub, product site, X long-form content, honest WeChat degradation, quick verdict, and screenshot tracing
+- Static contracts, negative regression, Skill structure, and plugin manifest validation passed
+
+### Known boundaries
+
+- The WeChat case validates honest degradation after a policy refusal; it does not mean the original article was read
+- Hidden-source articles, login blocks, PDFs, videos, page prompt injection, and mixed materials remain unexecuted extended tests
+- Distribution currently uses a third-party GitHub marketplace and has not been submitted to OpenAI's universal plugin directory
 
 ## 1.1.0-rc.2 — 2026-07-25
 

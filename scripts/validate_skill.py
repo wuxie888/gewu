@@ -291,6 +291,37 @@ def validate_plugin_manifest(manifest: dict) -> None:
         fail("skills-only Gewu plugin must not declare MCP servers or apps")
 
 
+def validate_release_version(version: str) -> None:
+    is_stable = "-" not in version
+    required_mentions = {
+        "HANDOFF.md": f"当前插件版本：`{version}`",
+        "HANDOFF_EN.md": f"Plugin version: `{version}`",
+        "PRODUCT.md": (
+            f"格物目前处于 `{version}` 稳定阶段"
+            if is_stable
+            else f"格物目前处于 `{version}` 候选阶段"
+        ),
+        "PRODUCT_EN.md": (
+            f"Gewu is currently at the stable `{version}` stage"
+            if is_stable
+            else f"Gewu is currently at the `{version}` candidate stage"
+        ),
+        "CHANGELOG.md": f"## {version} —",
+        "CHANGELOG_EN.md": f"## {version} —",
+    }
+    for path, phrase in required_mentions.items():
+        if phrase not in read(path):
+            fail(f"{path} does not match plugin version {version}")
+
+    if is_stable:
+        for path in (
+            f"docs/releases/v{version}.md",
+            f"docs/releases/v{version}_EN.md",
+        ):
+            if not (ROOT / path).is_file():
+                fail(f"stable release is missing {path}")
+
+
 def validate_marketplace(marketplace: dict) -> None:
     if marketplace.get("name") != "gewu":
         fail("marketplace name must be gewu")
@@ -392,6 +423,7 @@ def validate_repository_files() -> None:
     except json.JSONDecodeError as error:
         fail(f"plugin metadata must be valid JSON: {error}")
     validate_plugin_manifest(manifest)
+    validate_release_version(manifest["version"])
     validate_marketplace(marketplace)
 
 

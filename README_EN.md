@@ -21,6 +21,7 @@
 
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
+  <a href="https://github.com/wuxie888/gewu/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/release-v1.1.0-b1261b?style=flat-square" alt="Release v1.1.0"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
   <img src="https://img.shields.io/badge/Agent-Research_Skill_+_Plugin-b1261b?style=flat-square" alt="Agent Research Skill and Plugin">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
@@ -227,6 +228,7 @@ python3 scripts/test_validate_skill.py
 | [Troubleshooting](./docs/TROUBLESHOOTING_EN.md) | Installation, invocation, and access problems |
 | [Product definition](./PRODUCT_EN.md) | Product audience, goals, and non-goals |
 | [Changelog](./CHANGELOG_EN.md) | Version changes, reasons, and stability |
+| [v1.1.0 release notes](./docs/releases/v1.1.0_EN.md) | Installing or upgrading to the first stable release |
 | [Maintainer handoff](./HANDOFF_EN.md) | Contributors and maintainers |
 | [Test results](./evals/results.md) | Current validation evidence |
 

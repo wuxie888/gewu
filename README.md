@@ -21,6 +21,7 @@
 
 <p align="center">
   <a href="https://github.com/wuxie888/gewu/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/wuxie888/gewu/validate.yml?branch=main&style=flat-square&label=checks" alt="Checks"></a>
+  <a href="https://github.com/wuxie888/gewu/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/release-v1.1.0-b1261b?style=flat-square" alt="Release v1.1.0"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/wuxie888/gewu?style=flat-square" alt="MIT License"></a>
   <img src="https://img.shields.io/badge/Agent-Research_Skill_+_Plugin-b1261b?style=flat-square" alt="Agent Research Skill and Plugin">
   <a href="https://x.com/sciencedegens"><img src="https://img.shields.io/badge/X-@sciencedegens-111111?style=flat-square&logo=x&logoColor=white" alt="X @sciencedegens"></a>
@@ -225,6 +226,7 @@ python3 scripts/test_validate_skill.py
 | [常见问题与排错](./docs/TROUBLESHOOTING.md) | 安装、触发或页面访问遇到问题的人 |
 | [产品定义](./PRODUCT.md) | 想理解格物服务谁、做什么和不做什么的人 |
 | [版本记录](./CHANGELOG.md) | 想知道每次为什么修改、当前是否稳定的人 |
+| [v1.1.0 发布说明](./docs/releases/v1.1.0.md) | 安装或升级第一个稳定版的人 |
 | [维护交接](./HANDOFF.md) | 贡献者与维护者 |
 | [测试记录](./evals/results.md) | 需要核对真实验证状态的人 |
 

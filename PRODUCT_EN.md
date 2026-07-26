@@ -141,12 +141,14 @@ Stars, install counts, and report length are observable, but they do not replace
 
 ## Current stage
 
-Gewu is currently at the `1.1.0-rc.2` candidate stage:
+Gewu is currently at the stable `1.1.0` stage:
 
-- The GitHub-backed marketplace plugin has been independently installed on another computer
+- `v1.1.0` is the first stable version with a public tag and GitHub Release
+- The GitHub-backed marketplace plugin has passed cross-device installation
+- The user confirmed acceptance of the first-use journey; no independent recording or timing log was retained
 - Skill structure and static regression checks pass
 - Six key 1.1 real forward tests have passed; extended scenarios remain
 - The official website does not exist yet
-- Critical forward tests and onboarding acceptance are required before a stable release
+- Gewu has not been submitted to OpenAI's universal plugin directory
 
 See [`evals/results.md`](./evals/results.md) and [`CHANGELOG_EN.md`](./CHANGELOG_EN.md) for the current state.
